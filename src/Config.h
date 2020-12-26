@@ -14,7 +14,7 @@
 #endif
 
 #ifndef MISCLIB_PATH
-# define MISCLIB_PATH "lib/misc.bish"
+# define MISCLIB_PATH "lib/misclib.bish"
 #endif
 
 #endif
