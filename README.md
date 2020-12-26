@@ -2,6 +2,12 @@
 
 Shell scripting with a modern feel.
 
+## Attention
+
+**(!) This is a copy of https://github.com/tdenniston/bish repository, which isn't under maintenance anymore.**
+
+*Anyone who want to be a contributor of this package, just let me know. As I'm not a C++ developer and I can add new features from /lib/stdlib.bish only.*
+
 ## What
 
 Bish is a lightweight language created to bring shell scripting into the 21st century. It gives programmers the comfort of modern syntax but compiles to Bash, resulting in good portability (in as much as Bash is portable).
@@ -56,7 +62,7 @@ Some small examples are below, but **see the [introduction](https://github.com/t
 Build with 'make'. There are no dependencies other than the C++ standard library (and make itself). Compile a bish program to bash with the command:
 
     $ ./bish input.bish > output.bash
-    
+
 Then run the compiled file:
 
     $ bash output.bash
@@ -64,7 +70,7 @@ Then run the compiled file:
 You can also perform this in a single step by using the `-r` (for "run") argument:
 
     $ ./bish -r input.bish
-    
+
 This compiles and pipes the output directly to a bash process.
 
 ## Why
