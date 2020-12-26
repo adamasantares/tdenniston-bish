@@ -71,21 +71,36 @@ import second
 second.someMethod()
 ```
 
-## How
+## How to install
 
 Сlone the repository for the latest and greatest.
+Build with 'make'. There are no dependencies other than the C++ standard library (and make itself).
 
-Build with 'make'. There are no dependencies other than the C++ standard library (and make itself). Compile a bish program to bash with the command:
+```
+$ git clone https://github.com/adamasantares/tdenniston-bish.git
+$ cd tdenniston-bish && make
+$ sudo cp -r ../tdenniston-bish /usr/lib/bish
+$ sudo ln -s /usr/lib/bish/bish /usr/bin/bish
+$ bish --help
+```
 
-    $ ./bish input.bish > output.bash
+Compile a bish program to bash with the command:
+
+```
+$ ./bish input.bish > output.bash
+```
 
 Then run the compiled file:
 
-    $ bash output.bash
+```
+$ bash output.bash
+```
 
 You can also perform this in a single step by using the `-r` (for "run") argument:
 
-    $ ./bish -r input.bish
+```
+$ ./bish -r input.bish
+```
 
 This compiles and pipes the output directly to a bash process.
 
@@ -95,12 +110,12 @@ I can't count the number of times when I wanted to write a quick shell script to
 
 However, I created this language first and foremost as a weekend project and exercise in writing a compiler from scratch. I've dealt with pieces of compilers before, but have never written one from start to finish. Thus, I hope this project can also serve as a good teaching tool. I tried to design it with clarity in mind, so it should be simple to extend the language, or write a new back end.
 
-## News
+## News (Archive)
 
 * Apr 20 2015 -- Bish version 0.1 released. This is the first tagged release for bish.
 * Apr 8 2015 -- I've been caught up in my day job recently, and a few of the features I want to implement before doing a 0.1 release are requiring more infrastructure work than I anticipated. I'm hoping to do a 0.1 release within the next week or two weeks.
 
-## To do
+## To do (Archive?)
 
 The language and compiler are pretty bare-bones as of now, but quite functional. There are numerous things in the pipeline (see the open issues for a list). Longer term, here are some ideas of features that might be implemented:
 
