@@ -26,13 +26,13 @@ void link_stdlib(Bish::Module *m) {
 }
 
 // Add necessary misclib functions to the given module.
-void link_misclib(Bish::Module *m) {
-    Parser p;
-    Module *misclib = p.parse(get_misclib_path());
-    if (m->path.compare(misclib->path) != 0) {
-        m->import(misclib);
-    }
-}
+// void link_misclib(Bish::Module *m) {
+//     Parser p;
+//     Module *misclib = p.parse(get_misclib_path());
+//     if (m->path.compare(misclib->path) != 0) {
+//         m->import(misclib);
+//     }
+// }
 
 // Run an ordered list of post-link passes over the IR.
 void link_time_passes(Bish::Module *m) {
@@ -56,7 +56,7 @@ void link_time_passes(Bish::Module *m) {
 // Link and compile the given Module using the given code generator.
 void Bish::compile(Module *m, CodeGenerator *cg) {
     link_stdlib(m);
-    link_misclib(m);
+    // link_misclib(m); // TODO figure out how to link multiple libs frome one Fn
 
     link_time_passes(m);
 

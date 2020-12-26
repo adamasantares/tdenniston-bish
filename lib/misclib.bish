@@ -4,6 +4,7 @@
 # namespace. For example, one can just call "readln(...)" instead of
 # "misclib.readln(...)".
 
+# TODO figureout how to add more path at CONFIG_CONSTANTS = -DSTDLIB_PATH="\"$(ROOT_DIR)/lib/stdlib.bish\""
 
 # Returns string line from the terminal input
 def readln() {

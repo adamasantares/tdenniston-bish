@@ -89,8 +89,7 @@ Build with 'make'. There are no dependencies other than the C++ standard library
 ```
 $ git clone https://github.com/adamasantares/tdenniston-bish.git
 $ cd tdenniston-bish && make
-$ sudo cp -r ../tdenniston-bish /usr/lib/bish
-$ sudo ln -s /usr/lib/bish/bish /usr/bin/bish
+$ sudo ln -s /ABSOLUTE_PATH/tdenniston-bish/bish /usr/bin/bish
 $ bish
 ```
 

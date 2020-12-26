@@ -6,12 +6,12 @@
 
 # Print the given string without new line.
 def print(s) {
-    @(printf '%b' "$s");
+    @(printf "%b" "$s");
 }
 
 # Print the given string with new line.
 def println(s) {
-    @(printf '%b\n' "$s");
+    @(printf "%b" "$s"; echo "");
 }
 
 # Return true if the given file exists.
@@ -61,4 +61,15 @@ def assert(v) {
 # Return the length of array 'arr'.
 def len(arr) {
     return @(echo \${#arr[@]})
+}
+
+
+# Returns string line from the terminal input
+def readln() {
+    return @(read line; echo $(line));
+}
+
+# Returns string line from the terminal input
+def readpln(prompt) {
+    return @(read -p "$prompt" line; echo $(line));
 }
