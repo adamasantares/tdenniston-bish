@@ -91,7 +91,7 @@ $ git clone https://github.com/adamasantares/tdenniston-bish.git
 $ cd tdenniston-bish && make
 $ sudo cp -r ../tdenniston-bish /usr/lib/bish
 $ sudo ln -s /usr/lib/bish/bish /usr/bin/bish
-$ bish --help
+$ bish
 ```
 
 Compile a bish program to bash with the command:
