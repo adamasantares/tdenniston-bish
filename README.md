@@ -22,43 +22,53 @@ Some small examples are below, BUT **see the [introduction](https://github.com/a
 
 ##### Function calls
 
-    def fib(n) {
-        if (n < 2) {
-            return 1
-        }
-        return fib(n-1) + fib(n-2)
+```
+def fib(n) {
+    if (n < 2) {
+        return 1
     }
+    return fib(n-1) + fib(n-2)
+}
+```
 
 ##### Shell commands
 
-    def printall(files) {
-        for (f in files) {
-            println(f)
-        }
+```
+def printall(files) {
+    for (f in files) {
+        println(f)
     }
-    # cwd, ls, and cd are all builtin functions.
-    dir = cwd()
-    files = ls()
-    println("Files in current directory $dir:")
-    printall(files)
-    cd("/")
-    println("Files in root directory:")
-    printall(ls());
-    # read line from terminal
-    line = readln()
-    println(line)
-    age = readpln("Enter your age: ")
-    println(age)
+}
+
+# cwd, ls, and cd are all builtin functions.
+dir = cwd()
+
+files = ls()
+println("Files in current directory $dir:")
+printall(files)
+
+cd("/")
+println("Files in root directory:")
+printall(ls());
+
+# read line from terminal
+line = readln()
+println(line)
+age = readpln("Enter your age: ")
+println(age)
+```
 
 ##### Shell-like features
 
-    # I/O redirection (like pipes) is a first-class language feature.
-    pattern = "bish"
-    matches = ls() | @(grep $pattern)
-    println("Files in current directory matching $pattern:")
-    for (m in matches) {
-        println(m)
-    }
+```
+# I/O redirection (like pipes) is a first-class language feature.
+pattern = "bish"
+matches = ls() | @(grep $pattern)
+println("Files in current directory matching $pattern:")
+for (m in matches) {
+    println(m)
+}
+```
 
 ##### Imports
 
