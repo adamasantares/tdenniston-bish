@@ -1,6 +1,6 @@
 # bish
 
-Shell scripting with a modern feel.
+Shell scripting with a modern feel. [Wiki](https://github.com/adamasantares/tdenniston-bish/wiki/Bish-Wiki).
 
 ## Attention
 
@@ -8,7 +8,7 @@ Shell scripting with a modern feel.
 
 *Anyone who wants to be a contributor of this package, just let me know. As I'm not a C++ developer and I can add new features from /lib/stdlib.bish only.*
 
-## What
+## What is it?
 
 Bish is a lightweight language created to bring shell scripting into the 21st century. It gives programmers the comfort of modern syntax but compiles to Bash, resulting in good portability (in as much as Bash is portable).
 
@@ -16,7 +16,7 @@ Currently, Bish is still a very new language. I am adding new features as fast a
 
 As a side note, I won't stop you, but you would probably be crazy to use Bish in any sort of production environment until it stabilizes a bit more.
 
-Some small examples are below, but **see the [introduction](https://github.com/adamasantares/tdenniston-bish/wiki/Bish-Wiki) wiki page for a more comprehensive introduction**.
+Some small examples are below, BUT **see the [introduction](https://github.com/adamasantares/tdenniston-bish/wiki/Bish-Wiki) wiki page for a more comprehensive introduction**!
 
 ## Examples
 
