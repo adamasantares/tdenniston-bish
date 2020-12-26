@@ -83,6 +83,9 @@ void Module::import(Module *m) {
         if (m->path == get_stdlib_path()) {
             if (!name.has_namespace("stdlib")) name.add_namespace("stdlib");
         }
+        if (m->path == get_misclib_path()) {
+            if (!name.has_namespace("misclib")) name.add_namespace("misclib");
+        }
         if (linked.find(name) != linked.end()) {
             assert(call->function->body == NULL);
             to_erase.insert(call->function);

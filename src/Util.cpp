@@ -25,6 +25,17 @@ std::string get_stdlib_path() {
     }
 }
 
+std::string get_misclib_path() {
+    char *misclib = std::getenv("BISH_MISCLIB");
+    if (misclib) {
+        std::string abs = abspath(misclib);
+        assert(!abs.empty() && "Unable to resolve path specified in BISH_MISCLIB.");
+        return abs;
+    } else {
+        return MISCLIB_PATH;
+    }
+}
+
 std::string abspath(const std::string &path) {
     const char *s = path.c_str();
     char abs[PATH_MAX];

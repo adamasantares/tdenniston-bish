@@ -27,6 +27,8 @@ inline std::string as_string(const std::string &s) {
 bool is_file(const std::string &path);
 // Return the absolute path to the standard library.
 std::string get_stdlib_path();
+// Return the absolute path to the misc library.
+std::string get_misclib_path();
 // Return the absolute path from the given path.
 std::string abspath(const std::string &path);
 // Return the basename (last component) of a path.

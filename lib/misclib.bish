@@ -1,0 +1,16 @@
+# Bish miscellaneous functions. The library is special in
+# that it is imported by default into all bish scripts. Additionally,
+# functions defined in this file can be called without a
+# namespace. For example, one can just call "readln(...)" instead of
+# "misclib.readln(...)".
+
+
+# Returns string line from the terminal input
+def readln() {
+    return @(read line; echo $(line));
+}
+
+# Returns string line from the terminal input
+def readpln(prompt) {
+    return @(read -p "$prompt" line; echo $(line));
+}

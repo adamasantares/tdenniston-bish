@@ -6,11 +6,15 @@
 #endif
 
 #ifndef BISH_URL
-# define BISH_URL "https://github.com/tdenniston/bish"
+# define BISH_URL "https://github.com/adamasantares/tdenniston-bish"
 #endif
 
 #ifndef STDLIB_PATH
 # define STDLIB_PATH "lib/stdlib.bish"
+#endif
+
+#ifndef MISCLIB_PATH
+# define MISCLIB_PATH "lib/misc.bish"
 #endif
 
 #endif

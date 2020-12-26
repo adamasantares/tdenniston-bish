@@ -6,7 +6,7 @@ Shell scripting with a modern feel.
 
 **(!) This is a copy of https://github.com/tdenniston/bish repository, which isn't under maintenance anymore.**
 
-*Anyone who want to be a contributor of this package, just let me know. As I'm not a C++ developer and I can add new features from /lib/stdlib.bish only.*
+*Anyone who wants to be a contributor of this package, just let me know. As I'm not a C++ developer and I can add new features from /lib/stdlib.bish only.*
 
 ## What
 
@@ -16,7 +16,7 @@ Currently, Bish is still a very new language. I am adding new features as fast a
 
 As a side note, I won't stop you, but you would probably be crazy to use Bish in any sort of production environment until it stabilizes a bit more.
 
-Some small examples are below, but **see the [introduction](https://github.com/tdenniston/bish/wiki) wiki page for a more comprehensive introduction**.
+Some small examples are below, but **see the [introduction](https://github.com/adamasantares/tdenniston-bish/wiki/Bish-Wiki) wiki page for a more comprehensive introduction**.
 
 ## Examples
 
@@ -57,7 +57,7 @@ Some small examples are below, but **see the [introduction](https://github.com/t
 
 ## How
 
-[Download](https://github.com/tdenniston/bish/releases/tag/v0.1) the latest stable release, or clone the repository for the latest and greatest.
+Сlone the repository for the latest and greatest.
 
 Build with 'make'. There are no dependencies other than the C++ standard library (and make itself). Compile a bish program to bash with the command:
 
