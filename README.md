@@ -62,6 +62,8 @@ You can import one script to another
 ```
 # importing second.bish script from the same directory
 import second
+
+second.someMethod()
 ```
 
 ## How
