@@ -44,6 +44,11 @@ Some small examples are below, BUT **see the [introduction](https://github.com/a
     cd("/")
     println("Files in root directory:")
     printall(ls());
+    # read line from terminal
+    line = readln()
+    println(line)
+    age = readpln("Enter your age: ")
+    println(age)
 
 ##### Shell-like features
 
