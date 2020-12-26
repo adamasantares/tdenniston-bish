@@ -72,6 +72,7 @@ public:
         case ArrayTy:
             return "array[?]";
         }
+        return "";
     }
 
     Type &operator=(Type b) {
