@@ -55,6 +55,15 @@ Some small examples are below, but **see the [introduction](https://github.com/a
         println(m)
     }
 
+##### Imports
+
+You can import one script to another
+
+```
+# importing second.bish script from the same directory
+import second
+```
+
 ## How
 
 Сlone the repository for the latest and greatest.
