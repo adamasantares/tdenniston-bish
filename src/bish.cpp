@@ -10,28 +10,34 @@
 #include "Parser.h"
 #include "CodeGen.h"
 
-int run_on(const std::string &sh, std::istream &is, const std::string &args) {
+
+/**
+ * @brief Runs transcompiled code in a shell app
+ * @param shellApp shell app name (bash)
+ * @param stream transcompiled code stream
+ * @param args
+ * @return 
+ */
+int executeCode(const std::string &shellApp, std::istream &stream, const std::string &args) {
     // Must pass the -s parameter to bash to set the positional
     // parameters to 'args'.  The '--' disables any of the arguments
     // from being treated as arguments to the shell.
-    std::string cmd = sh + " -s -- " + args;
-    FILE *shell = popen(cmd.c_str(), "w");
-    char buf[4096];
-
+    std::string command = shellApp + " -s -- " + args;
+    FILE *process = popen(command.c_str(), "w");
+    char buffer[4096];
     do {
-        is.read(buf, sizeof(buf));
-        fwrite(buf, 1, is.gcount(), shell);
-    } while (is.gcount() > 0);
-
-    fflush(shell);
-
+        stream.read(buffer, sizeof(buffer));
+        fwrite(buffer, 1, stream.gcount(), process);
+    } while (stream.gcount() > 0);
+    fflush(process);
     // pclose returns the exit status of the process,
     // but shifted to the left by 8 bits.
-    int e = pclose(shell) >> 8;
+    int e = pclose(process) >> 8;
     return e;
 }
 
-void usage(char *argv0) {
+
+void usageInfo(char *argv0) {
     std::cerr << "USAGE: " << argv0 << " [-r] <INPUT> [<args>]\n";
     std::cerr << "  Compiles Bish file <INPUT> to bash. Specifying '-' for <INPUT>\n";
     std::cerr << "  reads from standard input.\n";
@@ -43,7 +49,8 @@ void usage(char *argv0) {
     std::cerr << "  -u <NAME>: use code generator <NAME>.\n";
 }
 
-void show_generators_list() {
+
+void showGeneratorsList() {
     const Bish::CodeGenerators::CodeGeneratorsMap &cg_map = Bish::CodeGenerators::all();
     for (Bish::CodeGenerators::CodeGeneratorsMap::const_iterator it = cg_map.begin();
          it != cg_map.end(); ++it) {
@@ -51,34 +58,33 @@ void show_generators_list() {
     }
 }
 
+
 int main(int argc, char **argv) {
     Bish::CodeGenerators::initialize();
 
     int c;
-    bool run_after_compile = false;
-    std::string code_generator_name = "bash";
+    bool runAfterCompile = false;
+    std::string codeGeneratorName = "bash";
 
-    while ((c = getopt(argc,argv, "hrlu:")) != -1) {
+    while ((c = getopt(argc, argv, "hrlu:")) != -1) {
         switch (c) {
-        case 'h':
-            usage(argv[0]);
-            return 0;
-        case 'r':
-            run_after_compile = true;
-            break;
-        case 'l':
-            show_generators_list();
-            return 1;
-        case 'u':
-            code_generator_name = std::string(optarg);
-            break;
-        default:
-            break;
+			case 'h':
+				usageInfo(argv[0]);
+				return 0;
+			case 'r':
+				runAfterCompile = true;
+				break;
+			case 'l':
+				showGeneratorsList();
+				return 1;
+			case 'u':
+				codeGeneratorName = std::string(optarg);
+				break;
         }
     }
 
     if (optind >= argc) {
-        usage(argv[0]);
+        usageInfo(argv[0]);
         return 1;
     }
 
@@ -89,7 +95,7 @@ int main(int argc, char **argv) {
 
     std::string args;
     if (optind + 1 < argc) {
-        if (!run_after_compile) {
+        if (!runAfterCompile) {
             std::cerr << "Can't pass arguments to script without -r.\n";
             return 1;
         }
@@ -100,17 +106,17 @@ int main(int argc, char **argv) {
     }
     
     Bish::CodeGenerators::CodeGeneratorConstructor cg_constructor =
-        Bish::CodeGenerators::get(code_generator_name);
+        Bish::CodeGenerators::get(codeGeneratorName);
     if (cg_constructor == NULL) {
-        std::cerr << "No code generator " << code_generator_name << std::endl;
+        std::cerr << "No code generator " << codeGeneratorName << std::endl;
         return 1;
     }
-    Bish::CodeGenerator *cg = cg_constructor(run_after_compile ? s : std::cout);
+	
+    Bish::CodeGenerator *cg = cg_constructor(runAfterCompile ? s : std::cout);
     Bish::compile(m, cg);
-    if (run_after_compile) {
-        const int exit_status = run_on(code_generator_name, s, args);
-        exit(exit_status);
+	
+    if (runAfterCompile) {
+        exit( executeCode(codeGeneratorName, s, args) );
     }
-
     return 0;
 }
